@@ -1,10 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 export function Container() {
+  const theme = useSelector((state) => state.theme);
   return (
-    <div className="w-full pt-2">
-      <h1 className="text-xl text-black font-semibold mb-5">
+    <div
+      className={`w-full pt-2 ${
+        theme ? "bg-white-100" : "bg-slate-900"
+      } transition-all duration-700`}
+    >
+      <h1
+        className={`text-xl ${
+          theme ? "text-black" : "text-white"
+        } font-semibold transition-all duration-700 mb-5`}
+      >
         Create Flashcard
       </h1>
       <div className="flex items-center space-x-10 mb-3">
