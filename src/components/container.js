@@ -8,12 +8,16 @@ export function Container() {
         Create Flashcard
       </h1>
       <div className="flex items-center space-x-10 mb-3">
-        <button className="text-sm font-semibold text-red-700">
-          Create New
-        </button>
-        <button className="text-sm font-semibold text-red-700">
-          My Flashcard
-        </button>
+        <NavLink to={"/"}>
+          <button className="text-sm font-semibold text-red-700">
+            Create New
+          </button>
+        </NavLink>
+        <NavLink to={"/flashcards"}>
+          <button className="text-sm font-semibold text-red-700">
+            My Flashcard
+          </button>
+        </NavLink>
       </div>
       <hr className="border bg-slate-300 border-slate-300 mb-8" />
     </div>
