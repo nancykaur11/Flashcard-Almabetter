@@ -1,9 +1,8 @@
 import * as Yup from "yup";
-import { generate_UniqueId } from "../utils/uniqueGenerator";
 
 export const flashcardSchema = Yup.object().shape({
   groups: Yup.object().shape({
-    group_Id: Yup.string().default(generate_UniqueId("group")),
+    group_Id: Yup.string().required(),
     group: Yup.string()
       .min(2, "Minimum character length is 2")
       .max(20, "You have reached the max length")
@@ -12,7 +11,7 @@ export const flashcardSchema = Yup.object().shape({
 
   terms: Yup.array(
     Yup.object().shape({
-      card_Id: Yup.string().default(generate_UniqueId("card")),
+      card_Id: Yup.string().required(),
       term: Yup.string()
         .min(10, "Minimum character length is 10")
         .max(200, "You have reached the max length")

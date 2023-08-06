@@ -10,9 +10,19 @@ export function Navbar() {
   const dispatch = useDispatch();
 
   return (
-    <div className={`${theme?"bg-white-100":"bg-slate-900"} transition-all duration-700 px-[15px]  h-[95px] py-4 flex justify-between items-center shadow-lg ${theme?"shadow-slate-400":"shadow-white"}`}>
+    <div
+      className={`${
+        theme ? "bg-white-100" : "bg-slate-900"
+      } transition-all duration-700 px-[15px]  h-[95px] py-4 flex justify-between items-center shadow-lg ${
+        theme ? "shadow-slate-400" : "shadow-white"
+      }`}
+    >
       <div>
-        <img src={logo} alt="Logo" className="h-[40px]" />
+        <img
+          src={logo}
+          alt="Logo"
+          className={`h-[40px] transition-all duration-700 ${!theme ? "invert" : null}`}
+        />
       </div>
 
       <div>

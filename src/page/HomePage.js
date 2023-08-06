@@ -7,6 +7,7 @@ import { Toast } from "../components/design/Popup";
 import { Button } from "../components/design/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../store/features/cards";
+import { generate_UniqueId } from "../utils/uniqueGenerator";
 
 export function CreateFlashcard() {
   const dispatch = useDispatch();
@@ -26,14 +27,14 @@ export function CreateFlashcard() {
     <Formik
       initialValues={{
         groups: {
-          group_Id: "",
+          group_Id: generate_UniqueId("group"),
           group: "",
           groupDesc: "",
           Profile: null,
         },
         terms: [
           {
-            card_Id: "",
+            card_Id: generate_UniqueId("card"),
             term: "",
             defination: "",
             image: null,
