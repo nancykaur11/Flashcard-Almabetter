@@ -29,7 +29,6 @@ const Flashcards = () => {
             <h3 className="text-center mt-11">{groups.group}</h3>
             <p className="text-center">{groups.groupDesc}</p>
             <p className="text-center mt-5">{terms.length} Cards</p>
-            {console.log(terms[0].card_Id, groups.group_Id)}
             <Link to={`/flashcards/${groups.group_Id}/${terms[0].card_Id}`}>
               <button className="absolute -translate-x-1/2 left-1/2 border-2 border-red-700 px-3 bottom-3 rounded-md">
                 View Cards
