@@ -5,11 +5,16 @@ import { CreateTerm } from "../components/CreateTeam";
 import { flashcardSchema } from "../validation/CardScheme";
 import { Toast } from "../components/design/Popup";
 import { Button } from "../components/design/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { add } from "../store/features/cards";
 
 export function CreateFlashcard() {
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme);
   const [toast, setToast] = useState(false);
 
   const handleSubmit = (values, { resetForm }) => {
+    dispatch(add(values));
     resetForm();
     setToast(true);
     setTimeout(() => {
@@ -21,12 +26,14 @@ export function CreateFlashcard() {
     <Formik
       initialValues={{
         groups: {
+          group_Id: "",
           group: "",
           groupDesc: "",
           Profile: null,
         },
         terms: [
           {
+            card_Id: "",
             term: "",
             defination: "",
             image: null,
@@ -39,7 +46,11 @@ export function CreateFlashcard() {
     >
       {({ values, isValid, setFieldValue, dirty }) => (
         <Form autoComplete="false">
-          <section className="mb-10 flex flex-col gap-10">
+          <section
+            className={`mb-10 flex flex-col gap-10 transition-all duration-700 ${
+              theme ? "bg-white-100" : "bg-slate-900"
+            }`}
+          >
             {toast && (
               <Toast
                 fn={() => setToast(false)}
@@ -52,10 +63,14 @@ export function CreateFlashcard() {
             <CreateTerm setFieldValue={setFieldValue} values={values} />
           </section>
 
-          <div className="mx-auto text-center">
+          <div
+            className={`mx-auto text-center transition-all duration-700 ${
+              theme ? "bg-white-100" : "bg-slate-900"
+            }`}
+          >
             <Button
               data-testid="submit-form"
-              disabled={!(isValid)}
+              disabled={!isValid}
               type="submit"
               btnclass={`font-semibold rounded-md text-white text-xl px-14 py-4 ${
                 !isValid ? "bg-red-200" : "bg-red-600"

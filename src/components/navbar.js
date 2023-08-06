@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../logo/logo.jpeg";
+import logo from "../logo/logo.png";
 import "../App.css";
 import { FaSun, FaMoon } from "react-icons/fa"; // Assuming you have installed the react-icons package
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,7 @@ export function Navbar() {
   return (
     <div className={`${theme?"bg-white-100":"bg-slate-900"} transition-all duration-700 px-[15px]  h-[95px] py-4 flex justify-between items-center shadow-lg ${theme?"shadow-slate-400":"shadow-white"}`}>
       <div>
-        <img src={logo} alt="Logo" className="h-[80px] w-[80px]" />
+        <img src={logo} alt="Logo" className="h-[40px]" />
       </div>
 
       <div>
