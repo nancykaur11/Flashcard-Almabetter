@@ -8,7 +8,7 @@ const Flashcards = () => {
 
   return (
     <div
-      className={` pt-12 transition-all min-h-screen duration-700 ${
+      className={`pt-12 transition-all min-h-screen duration-700 ${
         theme ? "bg-white-100 tex-black" : "bg-gray-900 text-white"
       }`}
     >
