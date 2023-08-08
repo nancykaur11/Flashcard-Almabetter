@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../logo/logo.png";
 import "../App.css";
-import { FaSun, FaMoon } from "react-icons/fa"; // Assuming you have installed the react-icons package
+import { FaSun, FaMoon } from "react-icons/fa"; 
 import { useDispatch, useSelector } from "react-redux";
 import { update } from "../store/features/theme";
 
