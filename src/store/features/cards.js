@@ -6,7 +6,9 @@ const cards = createSlice({
   name: "cards",
   initialState,
   reducers: {
-    add: (state, action) => [...state, action.payload],
+    add: (state, action) => {
+      return [...state, action.payload];
+    },
   },
 });
 

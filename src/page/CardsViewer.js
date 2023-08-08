@@ -14,6 +14,7 @@ const CardsViewer = () => {
   const [activeGroup, setActiveGroup] = useState({});
   const [activeCard, setActiveCard] = useState([]);
   const cards = useSelector((state) => state.cards);
+  const navigate = useNavigate();
   console.log(cards);
 
   const handleDownload = () => {
@@ -45,9 +46,11 @@ const CardsViewer = () => {
   return (
     <section className="flex flex-col text-slate-600">
       <header className="flex">
-        <Link to="/falshcards">
-          <BiArrowBack className="text-3xl mr-6 cursor-pointer" />
-        </Link>
+        <BiArrowBack
+          className="text-3xl mr-6 cursor-pointer"
+          onClick={() => navigate(-1)}
+        />
+
         <div className="flex flex-col">
           <h2 className="text-xl text-black font-bold">
             {activeGroup?.groups?.group}

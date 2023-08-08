@@ -1,36 +1,13 @@
 import React, { useState } from "react";
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
+import { Formik, Form, Field } from "formik";
 import { CreateGroup } from "../components/CreateGroup";
 import { CreateTerm } from "../components/CreateTeam";
+import { flashcardSchema } from "../validation/CardScheme";
 import { Toast } from "../components/design/Popup";
 import { Button } from "../components/design/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../store/features/cards";
 import { generate_UniqueId } from "../utils/uniqueGenerator";
-
-const flashcardSchema = Yup.object().shape({
-  groups: Yup.object().shape({
-    group_Id: Yup.string().required(),
-    group: Yup.string()
-      .min(2, "Minimum character length is 2")
-      .max(20, "You have reached the max length")
-      .required("Required"),
-  }),
-  terms: Yup.array().of(
-    Yup.object().shape({
-      card_Id: Yup.string().required(),
-      term: Yup.string()
-        .min(10, "Minimum character length is 10")
-        .max(200, "You have reached the max length")
-        .required("Required"),
-      defination: Yup.string()
-        .min(10, "Minimum character length is 10")
-        .max(2000, "You have reached the max length")
-        .required("Required"),
-    })
-  ),
-});
 
 export function CreateFlashcard() {
   const dispatch = useDispatch();
