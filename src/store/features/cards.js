@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import unique_Id_Patcher from "../../utils/unique_Patcher";
 
 const initialState = [];
 
@@ -7,7 +8,8 @@ const cards = createSlice({
   initialState,
   reducers: {
     add: (state, action) => {
-      return [...state, action.payload];
+      const patched_Data = unique_Id_Patcher(action.payload);
+      return [...state, patched_Data];
     },
   },
 });
