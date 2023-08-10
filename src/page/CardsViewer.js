@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RiArrowGoBackLine } from "react-icons/ri";
-// import ShareModal from "../components/design/ShareModal";
+import ShareModal from "../components/design/ShareModal";
 import { IoDownloadOutline, IoPrintOutline } from "react-icons/io5";
 
 const CardsViewer = () => {
@@ -62,30 +62,31 @@ const CardsViewer = () => {
         <aside className="col-span-1 bg-white w-[60vw] md:w-[10rem] xl:w-[17rem] m-5 px-1 py-2 h-fit rounded-md">
           <h2 className="p-2">Flashcards</h2>
           <hr />
+
           <hr className="mb-2" />
-          {console.log(activeGroup.terms, "d")}
           {activeGroup.terms &&
-            activeGroup?.terms.map((d) => {
-              <img
-                alt="cardimage"
-                src={d.image}
-                className="object-contain w-[32rem] xl:w-[20vw] h-full p-6"
-              />;
-              {
-                console.log(d.image, d.term, "dd");
-              }
-            })}
-          <p
-            className={`py-2 px-8 text-slate-700 font-medium hover:bg-slate-100 cursor-pointer`}
-          ></p>
+            activeGroup?.terms.map((card) => (
+              <p
+                // key={card.index}
+
+                className={`py-2 px-8 text-slate-700 font-medium hover:bg-slate-100 cursor-pointer ${
+                  //
+                  "!text-red-500 !font-bold"
+                }`}
+                // onClick={}
+              >
+                {card.term}
+              </p>
+            ))}
         </aside>
+
         <section className="col-span-3 md:col-span-2 flex flex-col xl:flex-row items-center w-full bg-white shadow-lg rounded-lg">
           <img
+            //
             alt="cardimage"
-            src={activeGroup?.groups?.Profile}
             className="object-contain w-[32rem] xl:w-[20vw] h-full p-6"
           />
-          <p className={`w-full p-6 py-10 `}>Card Description</p>
+          <p className={`w-full p-6 py-10 `}>{/* Description */}</p>
         </section>
         <aside className="col-span-1 hidden md:flex flex-col items-center space-y-5">
           <button
@@ -113,7 +114,7 @@ const CardsViewer = () => {
           </button>
         </aside>
       </main>
-      {/* <ShareModal isOpen={isOpen} closeModal={closeModal} /> */}
+      <ShareModal isOpen={isOpen} closeModal={closeModal} />
     </section>
   );
 };
