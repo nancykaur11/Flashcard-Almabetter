@@ -16,9 +16,13 @@ import {
   TwitterShareButton,
   EmailShareButton,
 } from "react-share";
+import { useParams } from "react-router-dom";
 
 const ShareModal = ({ isOpen, closeModal }) => {
-  const INPUT_LINK = `http://www.almabetter.com`;
+  const [shareLink, setShareLink] = useState(
+    "http://localhost:3000/flashcards"
+  );
+  const { group_Id, card_Id } = useParams();
   const [isCopied, setIsCopied] = useState(false);
 
   // this useEffect is to set the status to default, after copying the Link
@@ -28,6 +32,10 @@ const ShareModal = ({ isOpen, closeModal }) => {
         setIsCopied(false);
       }, 2000);
   }, [isCopied]);
+
+  useEffect(() => {
+    setShareLink(`http://localhost:3000/${group_Id}/${card_Id}`);
+  }, [group_Id, card_Id]);
 
   return (
     <Modal open={isOpen} onClickBackdrop={closeModal} dataTheme={"light"}>
@@ -55,10 +63,10 @@ const ShareModal = ({ isOpen, closeModal }) => {
             <p className="flex items-center flex-1 border-2 p-2 text-xs text-slate-500 border-slate-300 rounded-md border-dashed">
               Link:
               <span className="mx-2 font-semibold text-xs overflow-x-hidden text-black">
-                http://www.almabetter.com
+                {shareLink}
               </span>
             </p>
-            <CopyToClipboard text={INPUT_LINK} onCopy={() => setIsCopied(true)}>
+            <CopyToClipboard text={shareLink} onCopy={() => setIsCopied(true)}>
               <TbCopy className="text-xl text-slate-500 scale-x-[-1] cursor-pointer" />
             </CopyToClipboard>
 
