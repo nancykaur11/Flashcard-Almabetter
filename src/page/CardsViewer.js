@@ -15,7 +15,6 @@ const CardsViewer = () => {
   const [activeCard, setActiveCard] = useState([]);
   const cards = useSelector((state) => state.cards);
   const navigate = useNavigate();
-  console.log(cards);
 
   const handleDownload = () => {
     const currentView = document.documentElement.outerHTML; // Get the entire HTML of the current view
@@ -36,12 +35,17 @@ const CardsViewer = () => {
   }, [group_Id, card_Id]);
 
   useEffect(() => {
-    setActiveCard(
-      activeGroup?.terms?.map((item) =>
-        item.card_Id === card_Id ? item : null
-      )
-    );
-  }, [activeGroup]);
+    const card = activeGroup?.terms?.filter((item) => {
+      if (item.card_Id === card_Id) {
+        return item;
+      }
+    });
+    const active_Card_Data = undefined || card || {};
+    console.log(active_Card_Data)
+    setActiveCard(active_Card_Data);
+  }, [activeGroup, card_Id]);
+
+  console.log(activeCard);
 
   return (
     <section className="flex flex-col text-slate-600">
@@ -66,27 +70,30 @@ const CardsViewer = () => {
           <hr className="mb-2" />
           {activeGroup.terms &&
             activeGroup?.terms.map((card) => (
-              <p
-                // key={card.index}
+              <Link to={`/flashcards/${group_Id}/${card.card_Id}`}>
+                <p
+                  // key={card.index}
 
-                className={`py-2 px-8 text-slate-700 font-medium hover:bg-slate-100 cursor-pointer ${
-                  //
-                  "!text-red-500 !font-bold"
-                }`}
-                // onClick={}
-              >
-                {card.term}
-              </p>
+                  className={`py-2 px-8 text-slate-700 font-medium hover:bg-slate-100 cursor-pointer ${
+                    //
+                    "!text-red-500 !font-bold"
+                  }`}
+                  // onClick={}
+                >
+                  {card.term}
+                </p>
+              </Link>
             ))}
         </aside>
 
         <section className="col-span-3 md:col-span-2 flex flex-col xl:flex-row items-center w-full bg-white shadow-lg rounded-lg">
           <img
-            //
+            src={activeCard[0]?.image}
             alt="cardimage"
-            className="object-contain w-[32rem] xl:w-[20vw] h-full p-6"
+            className="object-contain w-24 xl:w-[20vw] h-full p-6"
           />
-          <p className={`w-full p-6 py-10 `}>{/* Description */}</p>
+          <p className={`w-full p-6 py-10 `}>{activeCard[0]?.term}</p>
+          <p className={`w-full p-6 py-10 `}>{activeCard[0]?.defination}</p>
         </section>
         <aside className="col-span-1 hidden md:flex flex-col items-center space-y-5">
           <button
