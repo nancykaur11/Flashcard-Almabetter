@@ -76,35 +76,35 @@ const ShareModal = ({ isOpen, closeModal }) => {
             {isCopied && "Link copied to clipboard"}
           </h2>
           <div className="mt-6 flex items-center space-x-10 justify-center">
-            <FacebookShareButton url="https://www.facebook.com/">
+            <FacebookShareButton url={shareLink}>
               <img
                 src={Facebook}
                 alt="Facebook"
                 className="w-10 p-2 bg-slate-100 rounded-lg cursor-pointer"
               />
             </FacebookShareButton>
-            <LinkedinShareButton url="https://www.linkedin.com/">
+            <LinkedinShareButton url={shareLink}>
               <img
                 src={Linkedin}
                 alt="Linkedin"
                 className="w-10 p-2 bg-slate-100 rounded-lg cursor-pointer"
               />
             </LinkedinShareButton>
-            <WhatsappShareButton url="https://web.whatsapp.com/">
+            <WhatsappShareButton url={shareLink}>
               <img
                 src={Whatsapp}
                 alt="Whatsapp"
                 className="w-10 p-2 bg-slate-100 rounded-lg cursor-pointer"
               />
             </WhatsappShareButton>
-            <TwitterShareButton url="https://twitter.com/">
+            <TwitterShareButton url={shareLink}>
               <img
                 src={Twitter}
                 alt="Twitter"
                 className="w-10 p-2 bg-slate-100 rounded-lg cursor-pointer"
               />
             </TwitterShareButton>
-            <EmailShareButton url="https://gmail.com/">
+            <EmailShareButton url={shareLink}>
               <img
                 src={Mail}
                 alt="Mail"
