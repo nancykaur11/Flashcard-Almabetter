@@ -92,7 +92,7 @@ const CardsViewer = () => {
             alt="cardimage"
             className="object-contain w-24 xl:w-[20vw] h-full p-6"
           />
-          <p className={`w-full p-6 py-10 `}>{activeCard[0]?.term}</p>
+         
           <p className={`w-full p-6 py-10 `}>{activeCard[0]?.defination}</p>
         </section>
         <aside className="col-span-1 hidden md:flex flex-col items-center space-y-5">
