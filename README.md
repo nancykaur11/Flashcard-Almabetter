@@ -28,3 +28,5 @@ https://flashcard-almabetter.vercel.app/
 7. React-toastify:  React library used for displaying customizable toast notifications .
 
 ## Contributor
+ Surendra Singh Kamboj: https://github.com/surendraSinghKamboj
+ 
