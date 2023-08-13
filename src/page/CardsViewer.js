@@ -41,12 +41,11 @@ const CardsViewer = () => {
       }
     });
     const active_Card_Data = undefined || card || {};
-    console.log(active_Card_Data)
+    
     setActiveCard(active_Card_Data);
   }, [activeGroup, card_Id]);
 
-  console.log(activeCard);
-
+  
   return (
     <section className="flex flex-col text-slate-600">
       <header className="flex">

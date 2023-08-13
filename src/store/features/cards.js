@@ -22,10 +22,11 @@ const cards = createSlice({
     },
     remove: (state, action) => {
       const remender_groups = state.filter((item) => {
-        if (item.groups.group_Id === action.payload) {
+        if (item.groups.group_Id !== action.payload) {
           return item;
         }
       });
+      
       localStorage.setItem("cards", JSON.stringify([...remender_groups]));
       // Update data to store
       return remender_groups;
