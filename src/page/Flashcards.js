@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Link } from "react-router-dom";
-import { AiFillCloseCircle } from "react-icons/ai";
+import { AiFillDelete } from "react-icons/ai";
 import { remove } from "../store/features/cards";
 import { useDispatch } from "react-redux";
 import NoCard from "../components/NoCard";
+import groupImg from "../assets/group.svg"
 
 const Flashcards = () => {
   const cards = useSelector((state) => state.cards);
@@ -31,12 +32,12 @@ const Flashcards = () => {
                     : "shadow-2xl shadow-blue-500/20"
                 } hover:shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]`}
               >
-                <AiFillCloseCircle
+                <AiFillDelete
                   className={`absolute right-2 top-2 cursor-pointer text-2xl`}
                   onClick={() => dispatch(remove(groups.group_Id))}
                 />
                 <img
-                  src={groups.Profile}
+                  src={groups.Profile?groups.Profile:groupImg}
                   className="absolute w-20 h-20 left-1/2 -translate-x-10 -top-10 rounded-full shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]"
                 />
                 <h3 className="text-center mt-11">{groups.group}</h3>
