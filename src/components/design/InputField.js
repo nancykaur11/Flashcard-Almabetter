@@ -1,6 +1,6 @@
 import { ErrorMessage, Field } from "formik";
 import React from "react";
-
+// FieldInput  component that accepts various props to customize.
 export function FieldInput({ label, id, name, htmlFor, placeholder }){
   return (
     <div className="flex flex-col gap-2 md:w-80 w-full">

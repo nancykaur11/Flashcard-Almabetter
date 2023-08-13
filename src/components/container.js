@@ -3,8 +3,10 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
 export function Container() {
+  // Get the current theme from the Redux store
   const theme = useSelector((state) => state.theme);
   return (
+    // The main container div that holds the UI elements.
     <div
       className={`w-full pt-2 ${
         theme ? "bg-white-100" : "bg-slate-900"

@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 import { CreateGroup } from "../components/CreateGroup";
 import { CreateTerm } from "../components/CreateTeam";
 import { flashcardSchema } from "../validation/CardScheme";
-import { Toast } from "../components/design/Popup";
+import { Toast } from "../components/design/Toast";
 import { Button } from "../components/design/Button";
 import { useDispatch } from "react-redux";
 import { add } from "../store/features/cards";
@@ -19,9 +19,11 @@ export function CreateFlashcard() {
     setTimeout(() => {
       setToast(false);
     }, 2000);
+    //  toast message
   };
 
   return (
+    // Formik wrapper for handling form state and validation
     <Formik
       initialValues={{
         groups: {
@@ -50,13 +52,14 @@ export function CreateFlashcard() {
                 toastClass={!toast ? "-translate-y-96" : "translate-y-0"}
               />
             )}
-
+            {/* Component to create flashcard group */}
             <CreateGroup values={values} setFieldValue={setFieldValue} />
-
+            {/* Component to create flashcard term*/}
             <CreateTerm setFieldValue={setFieldValue} values={values} />
           </section>
 
           <div className="mx-auto text-center">
+            {/* Button to submit the form */}
             <Button
               data-testid="submit-form"
               disabled={!isValid}

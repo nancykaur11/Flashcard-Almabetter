@@ -3,13 +3,14 @@ import { FieldInput } from "../components/design/InputField";
 import { Field } from "formik";
 import { AiFillFileImage } from "react-icons/ai";
 import { Button } from "../components/design/Button";
-
+// Component for creating a group
 export function CreateGroup({ values, setFieldValue }) {
   return (
     <div className="bg-white shadow-md md:p-10 p-5 rounded-md sm:p-5">
       <div
         className={`flex items-end gap-5 mb-5 sm:flex-row flex-col flex-wrap`}
       >
+        {/* Input field for entering group name */}
         <FieldInput
           name={`groups.group`}
           id={"group"}
@@ -19,6 +20,7 @@ export function CreateGroup({ values, setFieldValue }) {
         />
 
         <div>
+          {/* Button for uploading an image */}
           <Button
             type={"button"}
             btnclass={
@@ -82,6 +84,7 @@ export function CreateGroup({ values, setFieldValue }) {
         >
           Add Description
         </label>
+        {/* Textarea for entering group description */}
         <Field
           as="textarea"
           name={`groups.groupDesc`}

@@ -6,6 +6,7 @@ import { Button } from "../components/design/Button";
 import { FieldInput } from "../components/design/InputField";
 import { FieldArray } from "formik";
 
+// Component for creating term
 export function CreateTerm({ values, setFieldValue }) {
   const [num, setNum] = useState(0);
   const [activeBtn, setActiveBtn] = useState(true);
@@ -26,6 +27,7 @@ export function CreateTerm({ values, setFieldValue }) {
                   {index + 1}
                 </span>
                 <div className="flex items-end flex-wrap gap-5 md:flex-row sm:flex-col flex-col w-full">
+                  {/* Input field for entering term */}
                   <FieldInput
                     name={`terms.${index}.term`}
                     htmlFor={`Term${item}`}
@@ -33,7 +35,7 @@ export function CreateTerm({ values, setFieldValue }) {
                     id={`Term${item}`}
                     placeholder={"Enter Team Name"}
                   />
-
+                  {/* Input field for entering term definition */}
                   <FieldInput
                     name={`terms.${index}.defination`}
                     htmlFor={`Defination${item}`}
@@ -43,6 +45,7 @@ export function CreateTerm({ values, setFieldValue }) {
                   />
                   {!item.image && (
                     <div>
+                      {/* Button for uploading an image */}
                       <Button
                         type={"button"}
                         btnclass={
@@ -165,6 +168,7 @@ export function CreateTerm({ values, setFieldValue }) {
               </li>
             ))}
 
+            {/* Button to add more terms */}
             <li className="text-center md:text-left">
               <Button
                 type="button"
