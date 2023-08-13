@@ -34,7 +34,7 @@ const ShareModal = ({ isOpen, closeModal }) => {
   }, [isCopied]);
 
   useEffect(() => {
-    setShareLink(`http://localhost:3000/${group_Id}/${card_Id}`);
+    setShareLink(`http://localhost:3000/flashcards/${group_Id}/${card_Id}`);
   }, [group_Id, card_Id]);
 
   return (
