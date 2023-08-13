@@ -14,6 +14,7 @@ const CardsViewer = () => {
   const [activeGroup, setActiveGroup] = useState({});
   const [activeCard, setActiveCard] = useState([]);
   const cards = useSelector((state) => state.cards);
+  const theme = useSelector((state) => state.theme);
   const navigate = useNavigate();
 
   const handleDownload = () => {
@@ -47,7 +48,7 @@ const CardsViewer = () => {
 
   
   return (
-    <section className="flex flex-col text-slate-600">
+    <section className={`flex flex-col text-slate-600 min-h-screen ${theme?"bg-white text-black":"bg-slate-900 text-white"}`}>
       <header className="flex">
         <BiArrowBack
           className="text-3xl mr-6 cursor-pointer"
@@ -55,14 +56,14 @@ const CardsViewer = () => {
         />
 
         <div className="flex flex-col">
-          <h2 className="text-xl text-black font-bold">
+          <h2 className="text-xl font-bold">
             {activeGroup?.groups?.group}
           </h2>
           <p className="my-2">{activeGroup?.groups?.groupDesc}</p>
         </div>
       </header>
       <main className="mt-6 grid grid-rows-1 md:grid-cols-4">
-        <aside className="col-span-1 bg-white w-[60vw] md:w-[10rem] xl:w-[17rem] m-5 px-1 py-2 h-fit rounded-md">
+        <aside className="col-span-1 w-[60vw] md:w-[10rem] xl:w-[17rem] m-5 px-1 py-2 h-fit rounded-md">
           <h2 className="p-2">Flashcards</h2>
           <hr />
 
@@ -85,7 +86,7 @@ const CardsViewer = () => {
             ))}
         </aside>
 
-        <section className="col-span-3 md:col-span-2 flex flex-col xl:flex-row items-center w-full bg-white shadow-2xl rounded-lg">
+        <section className="col-span-3 md:col-span-2 flex flex-col xl:flex-row items-center w-full shadow-2xl rounded-lg">
           <img
             src={activeCard[0]?.image}
             alt="cardimage"
@@ -98,13 +99,13 @@ const CardsViewer = () => {
           <button
             type="button"
             onClick={openModal}
-            className="flex items-center py-3 px-4 xl:w-60 space-x-5 bg-white rounded-md shadow-lg active:scale-100 transition-all duration-100 hover:scale-105"
+            className="flex items-center py-3 px-4 xl:w-60 space-x-5  rounded-md shadow-lg active:scale-100 transition-all duration-100 hover:scale-105"
           >
             <RiArrowGoBackLine className="scale-x-[-1]" />
             <span className=" xl:block">Share</span>
           </button>
           <button
-            className="flex items-center py-3 px-4 xl:w-60 space-x-5 bg-white rounded-md shadow-lg active:scale-100 transition-all duration-100 hover:scale-105"
+            className="flex items-center py-3 px-4 xl:w-60 space-x-5  rounded-md shadow-lg active:scale-100 transition-all duration-100 hover:scale-105"
             onClick={handleDownload}
           >
             <IoDownloadOutline />
@@ -112,7 +113,7 @@ const CardsViewer = () => {
           </button>
 
           <button
-            className="flex items-center py-3 px-4 xl:w-60 space-x-5 bg-white rounded-md shadow-lg active:scale-100 transition-all duration-100 hover:scale-105"
+            className="flex items-center py-3 px-4 xl:w-60 space-x-5  rounded-md shadow-lg active:scale-100 transition-all duration-100 hover:scale-105"
             onClick={() => window.print()}
           >
             <IoPrintOutline />
