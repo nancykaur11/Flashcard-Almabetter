@@ -95,21 +95,21 @@ const CardsViewer = () => {
           <p className={`w-full p-6 py-10 `}>{activeCard[0]?.term}</p>
           <p className={`w-full p-6 py-10 `}>{activeCard[0]?.defination}</p>
         </section>
-        <aside className="col-span-1 hidden md:flex flex-col items-center space-y-5">
+        <aside className="col-span-1  md:flex flex-col items-center space-y-5">
           <button
             type="button"
             onClick={openModal}
             className="flex items-center py-3 px-4 xl:w-60 space-x-5 bg-white rounded-md shadow-lg active:scale-100 transition-all duration-100 hover:scale-105"
           >
             <RiArrowGoBackLine className="scale-x-[-1]" />
-            <span className="hidden xl:block">Share</span>
+            <span className=" xl:block">Share</span>
           </button>
           <button
             className="flex items-center py-3 px-4 xl:w-60 space-x-5 bg-white rounded-md shadow-lg active:scale-100 transition-all duration-100 hover:scale-105"
             onClick={handleDownload}
           >
             <IoDownloadOutline />
-            <span className="hidden xl:block">Download</span>
+            <span className=" xl:block">Download</span>
           </button>
 
           <button
@@ -117,7 +117,7 @@ const CardsViewer = () => {
             onClick={() => window.print()}
           >
             <IoPrintOutline />
-            <span className="hidden xl:block">Print</span>
+            <span className=" xl:block">Print</span>
           </button>
         </aside>
       </main>
