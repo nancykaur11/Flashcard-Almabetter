@@ -74,7 +74,7 @@ const CardsViewer = () => {
                 <p
                   // key={card.index}
 
-                  className={`py-2 px-8 text-slate-700 font-medium hover:bg-slate-100 cursor-pointer ${
+                  className={`py-2 px-8 text-slate-700 font-medium hover:bg-slate-300 cursor-pointer ${
                     //
                     "!text-red-500 !font-bold"
                   }`}
@@ -86,7 +86,7 @@ const CardsViewer = () => {
             ))}
         </aside>
 
-        <section className="col-span-3 md:col-span-2 flex flex-col xl:flex-row items-center w-full bg-white shadow-lg rounded-lg">
+        <section className="col-span-3 md:col-span-2 flex flex-col xl:flex-row items-center w-full bg-white shadow-2xl rounded-lg">
           <img
             src={activeCard[0]?.image}
             alt="cardimage"
